@@ -3,6 +3,7 @@
     <NavbarComponent />
     <HeroComponent />
     <ProductComponent />
+    <BenefitsComponent />
 
 
   </div>
@@ -12,6 +13,7 @@
 import NavbarComponent from '@/components/common/NavbarComponent.vue'
 import HeroComponent from '@/components/landing/HeroComponent.vue'
 import ProductComponent from '@/components/landing/ProductComponent.vue'
+import BenefitsComponent from '@/components/landing/BenefitsComponent.vue'
 
 
 </script>
