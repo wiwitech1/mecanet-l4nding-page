@@ -4,6 +4,7 @@
     <HeroComponent />
     <ProductComponent />
     <BenefitsComponent />
+    <PlansComponent />
 
 
   </div>
@@ -14,6 +15,8 @@ import NavbarComponent from '@/components/common/NavbarComponent.vue'
 import HeroComponent from '@/components/landing/HeroComponent.vue'
 import ProductComponent from '@/components/landing/ProductComponent.vue'
 import BenefitsComponent from '@/components/landing/BenefitsComponent.vue'
+import PlansComponent from '@/components/landing/PlansComponent.vue'
+
 
 
 </script>
