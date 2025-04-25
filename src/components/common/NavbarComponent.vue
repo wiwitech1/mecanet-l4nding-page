@@ -1,8 +1,8 @@
 <template>
   <header class="navbar">
-    <a href="/" class="navbar__logo" aria-label="Inicio - Logo Mecanaut">
-      <img src="@/assets/images/logo-alone.svg" alt="Logo Mecanaut" />
-      <h1 class="navbar__logo-text">Mecanaut</h1>
+    <a href="/" class="navbar__logo" aria-label="Inicio - Logo Mecanet">
+      <img src="@/assets/images/logo-alone.svg" alt="Logo Mecanet" />
+      <h1 class="navbar__logo-text">Mecanet</h1>
     </a>
 
     <v-icon name="fc-globe" />
@@ -125,7 +125,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from "vue"
+import { ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import InteractiveComponent from './InteractiveComponent.vue'
 import type { NavItem, Language, ButtonConfig } from '@/types/navbar.types'

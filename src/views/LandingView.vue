@@ -5,8 +5,7 @@
     <ProductComponent />
     <BenefitsComponent />
     <PlansComponent />
-
-
+    <FAQComponent />
   </div>
 </template>
 
@@ -16,9 +15,7 @@ import HeroComponent from '@/components/landing/HeroComponent.vue'
 import ProductComponent from '@/components/landing/ProductComponent.vue'
 import BenefitsComponent from '@/components/landing/BenefitsComponent.vue'
 import PlansComponent from '@/components/landing/PlansComponent.vue'
-
-
-
+import FAQComponent from '@/components/landing/FAQComponent.vue'
 </script>
 
 <style scoped>
