@@ -1,12 +1,16 @@
 <template>
   <div class="landing-view">
     <NavbarComponent />
+    <HeroComponent />
+
 
   </div>
 </template>
 
 <script setup lang="ts">
 import NavbarComponent from '@/components/common/NavbarComponent.vue'
+import HeroComponent from '@/components/landing/HeroComponent.vue'
+
 </script>
 
 <style scoped>
