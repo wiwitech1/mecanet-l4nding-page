@@ -11,15 +11,15 @@
     "registerAriaLabel": "Crear nueva cuenta"
   },
   "hero": {
-    "title": "Mecanaut",
+    "title": "Mecanet",
     "subtitle": "Gestiona el mantenimiento de tu maquinaria como un profesional",
-    "description": "Mecanaut centraliza el mantenimiento preventivo, correctivo y predictivo para cualquier tipo de empresa."
+    "description": "Mecanet centraliza el mantenimiento preventivo, correctivo y predictivo para cualquier tipo de empresa."
   },
   "product": {
     "sectionTitle": "Producto",
-    "title": "¿Qué es Mecanaut?",
-    "subtitle": "Descubre Mecanaut, el software pensado para revolucionar el mantenimiento de maquinarias.",
-    "description": "Diseñado para empresas que quieren optimizar sus procesos y reducir tiempos de inactividad, Mecanaut resuelve los desafíos del mantenimiento en tres frentes",
+    "title": "¿Qué es Mecanet?",
+    "subtitle": "Descubre Mecanet, el software pensado para revolucionar el mantenimiento de maquinarias.",
+    "description": "Diseñado para empresas que quieren optimizar sus procesos y reducir tiempos de inactividad, Mecanet resuelve los desafíos del mantenimiento en tres frentes",
     "features": {
       "preventive": "Mantenimiento Preventivo",
       "corrective": "Mantenimiento Correctivo",
@@ -62,12 +62,12 @@
       {
         "titleBefore": "Se adapta a cualquier ",
         "titleHighlight": "tipo de empresa",
-        "description": "Usa Mecanaut para maquinaria industrial, flotas de transporte, líneas textiles o almacenes."
+        "description": "Usa Mecanet para maquinaria industrial, flotas de transporte, líneas textiles o almacenes."
       },
       {
         "titleBefore": "Tu información, ",
         "titleHighlight": "protegida en la nube",
-        "description": "No pierdas datos por accidentes. Mecanaut los guarda y respalda automáticamente."
+        "description": "No pierdas datos por accidentes. Mecanet los guarda y respalda automáticamente."
       }
     ]
   },
@@ -128,7 +128,7 @@
       },
       {
         "question": "¿Necesito instalar algo?",
-        "answer": "No, Mecanaut es una aplicación web que funciona completamente en la nube. Solo necesitas un navegador web actualizado para acceder desde cualquier dispositivo."
+        "answer": "No, Mecanet es una aplicación web que funciona completamente en la nube. Solo necesitas un navegador web actualizado para acceder desde cualquier dispositivo."
       }
     ]
   },
