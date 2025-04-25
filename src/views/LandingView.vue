@@ -1,8 +1,13 @@
 <template>
-  <div class="landing-view"></div>
+  <div class="landing-view">
+    <NavbarComponent />
+
+  </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import NavbarComponent from '@/components/common/NavbarComponent.vue'
+</script>
 
 <style scoped>
 .landing-view {
