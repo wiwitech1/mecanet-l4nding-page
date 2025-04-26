@@ -1,8 +1,13 @@
 <template>
   <header class="navbar">
-    <a href="/" class="navbar__logo" aria-label="Inicio - Logo Mecanet">
-      <img src="@/assets/images/logo-alone.svg" alt="Logo Mecanet" />
-      <h1 class="navbar__logo-text">Mecanet</h1>
+    <a
+      href="#home"
+      class="navbar__logo"
+      aria-label="Inicio - Logo Mecanaut"
+      @click.prevent="scrollToSection('home')"
+    >
+      <img src="@/assets/images/logo-alone.svg" alt="Logo Mecanaut" />
+      <h1 class="navbar__logo-text">Mecanaut</h1>
     </a>
 
     <v-icon name="fc-globe" />
@@ -18,7 +23,7 @@
             role="menuitem"
             :aria-current="item.isActive ? 'page' : undefined"
             :class="{ active: item.isActive }"
-            @click="isMobileMenuOpen = false"
+            @click.prevent="scrollToSection(item.href.substring(1))"
           >
             {{ item.text }}
           </a>
@@ -53,10 +58,11 @@
           </InteractiveComponent>
 
           <InteractiveComponent
-            tag="button"
+            tag="a"
+            :href="loginConfig.href"
             variant="secondary"
             :aria-label="registerConfig.ariaLabel"
-            @click="registerConfig.onClick"
+            @click="loginConfig.onClick"
           >
             {{ registerConfig.text }}
           </InteractiveComponent>
@@ -99,10 +105,11 @@
       </InteractiveComponent>
 
       <InteractiveComponent
-        tag="button"
+        tag="a"
+        :href="loginConfig.href"
         variant="secondary"
         :aria-label="registerConfig.ariaLabel"
-        @click="registerConfig.onClick"
+        @click="loginConfig.onClick"
       >
         {{ registerConfig.text }}
       </InteractiveComponent>
@@ -125,7 +132,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { ref, watch, onMounted, onBeforeUnmount } from 'vue'
 import { useI18n } from 'vue-i18n'
 import InteractiveComponent from './InteractiveComponent.vue'
 import type { NavItem, Language, ButtonConfig } from '@/types/navbar.types'
@@ -133,11 +140,11 @@ import type { NavItem, Language, ButtonConfig } from '@/types/navbar.types'
 const { t, locale } = useI18n()
 
 const navItems = ref<NavItem[]>([
-  { text: t('navbar.home'), href: '/', isActive: true },
-  { text: t('navbar.product'), href: '/producto', isActive: false },
-  { text: t('navbar.benefits'), href: '/beneficios', isActive: false },
-  { text: t('navbar.plans'), href: '/planes', isActive: false },
-  { text: t('navbar.faq'), href: '/faq', isActive: false },
+  { text: t('navbar.home'), href: '#home', isActive: true },
+  { text: t('navbar.product'), href: '#producto', isActive: false },
+  { text: t('navbar.benefits'), href: '#beneficios', isActive: false },
+  { text: t('navbar.plans'), href: '#planes', isActive: false },
+  { text: t('navbar.faq'), href: '#faq', isActive: false },
 ])
 
 const languages = ref<Language[]>([
@@ -146,11 +153,83 @@ const languages = ref<Language[]>([
 ])
 
 const isMobileMenuOpen = ref(false)
+const isProgrammaticScrolling = ref(false)
 
 const toggleMobileMenu = () => {
   isMobileMenuOpen.value = !isMobileMenuOpen.value
   document.body.style.overflow = isMobileMenuOpen.value ? 'hidden' : ''
 }
+
+const scrollToSection = (sectionId: string) => {
+  const section = document.getElementById(sectionId)
+  if (section) {
+    isMobileMenuOpen.value = false
+    document.body.style.overflow = ''
+
+    navItems.value = navItems.value.map((item) => ({
+      ...item,
+      isActive: item.href === `#${sectionId}`,
+    }))
+
+    isProgrammaticScrolling.value = true
+
+    section.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    })
+
+    setTimeout(() => {
+      isProgrammaticScrolling.value = false
+    }, 1000)
+  }
+}
+
+let observer: IntersectionObserver
+
+onMounted(() => {
+  observer = new IntersectionObserver(
+    (entries) => {
+      if (isProgrammaticScrolling.value) return
+
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const sectionId = entry.target.id
+
+          navItems.value = navItems.value.map((item) => ({
+            ...item,
+            isActive: item.href === `#${sectionId}`,
+          }))
+        }
+      })
+    },
+    {
+      threshold: 0.3,
+      rootMargin: '-80px 0px 0px 0px',
+    },
+  )
+
+  // Observar todas las secciones
+  const sections = ['home', 'producto', 'beneficios', 'planes', 'faq']
+  sections.forEach((sectionId) => {
+    const section = document.getElementById(sectionId)
+    if (section) {
+      observer.observe(section)
+    }
+  })
+
+  // Manejar navegación por hash en la URL al cargar
+  if (window.location.hash) {
+    const sectionId = window.location.hash.substring(1)
+    setTimeout(() => scrollToSection(sectionId), 500)
+  }
+})
+
+onBeforeUnmount(() => {
+  // Desconectar el observer al desmontar
+  if (observer) {
+    observer.disconnect()
+  }
+})
 
 const handleLanguageChange = (code: string) => {
   locale.value = code
@@ -165,11 +244,11 @@ const handleLanguageChange = (code: string) => {
 
 watch(locale, () => {
   navItems.value = [
-    { text: t('navbar.home'), href: '/', isActive: navItems.value[0].isActive },
-    { text: t('navbar.product'), href: '/producto', isActive: navItems.value[1].isActive },
-    { text: t('navbar.benefits'), href: '/beneficios', isActive: navItems.value[2].isActive },
-    { text: t('navbar.plans'), href: '/planes', isActive: navItems.value[3].isActive },
-    { text: t('navbar.faq'), href: '/faq', isActive: navItems.value[4].isActive },
+    { text: t('navbar.home'), href: '#home', isActive: navItems.value[0].isActive },
+    { text: t('navbar.product'), href: '#producto', isActive: navItems.value[1].isActive },
+    { text: t('navbar.benefits'), href: '#beneficios', isActive: navItems.value[2].isActive },
+    { text: t('navbar.plans'), href: '#planes', isActive: navItems.value[3].isActive },
+    { text: t('navbar.faq'), href: '#faq', isActive: navItems.value[4].isActive },
   ]
 
   loginConfig.value = {
@@ -187,7 +266,7 @@ watch(locale, () => {
 
 const loginConfig = ref<ButtonConfig>({
   text: t('navbar.login'),
-  href: '/login',
+  href: '/',
   ariaLabel: t('navbar.loginAriaLabel'),
   onClick: () => {
     console.log('Redirigiendo a inicio de sesión')
@@ -213,7 +292,10 @@ const registerConfig = ref<ButtonConfig>({
   justify-content: space-between;
   background-color: var(--color-background);
   padding: 2em 0;
-  position: relative;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 100;
 }
 
 .navbar__logo {

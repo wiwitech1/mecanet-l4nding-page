@@ -1,7 +1,11 @@
 <template>
   <component
     :is="tag"
-    :class="['interactive-element', `interactive-element--${variant}`]"
+    :class="[
+      'interactive-element',
+      `interactive-element--${variant}`,
+      tag === 'button' || tag === 'a' ? 'button_style' : '',
+    ]"
     :type="tag === 'button' ? type : undefined"
     @click="handleClick"
   >

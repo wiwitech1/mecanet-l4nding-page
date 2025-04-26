@@ -1,11 +1,21 @@
 <template>
   <div class="landing-view">
     <NavbarComponent />
-    <HeroComponent />
-    <ProductComponent />
-    <BenefitsComponent />
-    <PlansComponent />
-    <FAQComponent />
+    <section id="home">
+      <HeroComponent />
+    </section>
+    <section id="producto">
+      <ProductComponent />
+    </section>
+    <section id="beneficios">
+      <BenefitsComponent />
+    </section>
+    <section id="planes">
+      <PlansComponent />
+    </section>
+    <section id="faq">
+      <FAQComponent />
+    </section>
     <FooterComponent />
   </div>
 </template>
@@ -28,7 +38,28 @@ import FooterComponent from '@/components/common/FooterComponent.vue'
   align-items: center;
   justify-content: start;
   min-height: 100vh;
-  width: 100vw;
+  width: 100%;
   padding: 0 8%;
+  scroll-behavior: smooth;
+}
+
+section {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  scroll-margin-top: 100px; /* Ajusta esto según la altura de tu navbar */
+  padding: 4rem 0;
+}
+
+/* Mejora la estética en dispositivos pequeños */
+@media (max-width: 768px) {
+  section {
+    min-height: 80vh;
+    scroll-margin-top: 80px;
+    padding: 2rem 0;
+  }
 }
 </style>
