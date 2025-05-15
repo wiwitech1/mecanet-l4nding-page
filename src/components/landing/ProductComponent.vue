@@ -2,17 +2,16 @@
   <section class="product-container">
     <TitleSectionComponent :title="$t('product.sectionTitle')" />
     <div class="product-content">
-      <h2 class="product-title">¿Qué es Mecanet?</h2>
+      <h2 class="product-title">{{ $t('product.title') }}</h2>
 
       <div class="product-card">
         <div class="product-info">
           <h3 class="product-subtitle">
-            Descubre Mecanet, el software pensado para revolucionar el mantenimiento de maquinarias.
+            {{ $t('product.subtitle') }}
           </h3>
 
           <p class="product-description">
-            Diseñado para empresas que quieren optimizar sus procesos y reducir tiempos de
-            inactividad, Mecanet resuelve los desafíos del mantenimiento en tres frentes
+            {{ $t('product.description') }}
           </p>
 
           <ul class="product-features">

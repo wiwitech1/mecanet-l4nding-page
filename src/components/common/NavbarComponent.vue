@@ -59,10 +59,10 @@
 
           <InteractiveComponent
             tag="a"
-            :href="loginConfig.href"
+            :href="registerConfig.href"
             variant="secondary"
             :aria-label="registerConfig.ariaLabel"
-            @click="loginConfig.onClick"
+            @click="registerConfig.onClick"
           >
             {{ registerConfig.text }}
           </InteractiveComponent>
@@ -106,10 +106,10 @@
 
       <InteractiveComponent
         tag="a"
-        :href="loginConfig.href"
+        :href="registerConfig.href"
         variant="secondary"
         :aria-label="registerConfig.ariaLabel"
-        @click="loginConfig.onClick"
+        @click="registerConfig.onClick"
       >
         {{ registerConfig.text }}
       </InteractiveComponent>
@@ -266,7 +266,7 @@ watch(locale, () => {
 
 const loginConfig = ref<ButtonConfig>({
   text: t('navbar.login'),
-  href: '/',
+  href: 'https://agreeable-moss-0b81a851e.6.azurestaticapps.net/iniciar-sesion',
   ariaLabel: t('navbar.loginAriaLabel'),
   onClick: () => {
     console.log('Redirigiendo a inicio de sesión')
@@ -276,6 +276,7 @@ const loginConfig = ref<ButtonConfig>({
 
 const registerConfig = ref<ButtonConfig>({
   text: t('navbar.register'),
+  href: 'https://agreeable-moss-0b81a851e.6.azurestaticapps.net/registrar',
   ariaLabel: t('navbar.registerAriaLabel'),
   onClick: () => {
     console.log('Abriendo modal de registro')
