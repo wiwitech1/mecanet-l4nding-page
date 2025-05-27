@@ -12,14 +12,13 @@ const { t } = useI18n()
         <img src="@/assets/images/logo-alone.svg" alt="Logo" />
       </div>
       <div class="hero-component__title">
-        <h1>Mecanet</h1>
+        <h1>{{ t('hero.title') }}</h1>
         <!--  <Icon icon="svg-spinners:clock" color="var(--color-primary-3)" /> -->
       </div>
       <div class="hero-component__info">
         <h3>{{ t('hero.subtitle') }}</h3>
         <h4>
-          Mecanet centraliza el mantenimiento preventivo, correctivo y predictivo para cualquier
-          tipo de empresa.
+          {{ t('hero.description') }}
         </h4>
       </div>
     </header>
