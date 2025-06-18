@@ -28,7 +28,7 @@
 
       <div class="footer-divider"></div>
 
-      <div class="footer-copyright">©2025 Mecanet. Derechos reservados.</div>
+      <div class="footer-copyright">{{ $t('footer.copyright') }}</div>
     </div>
   </footer>
 </template>
