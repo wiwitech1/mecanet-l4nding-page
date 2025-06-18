@@ -40,7 +40,12 @@
     </div>
 
     <div class="plan-action">
-      <button class="action-button" :class="{ 'action-button--dark': isDark }">
+      <button 
+      target="_blank"
+        class="action-button" 
+        :class="{ 'action-button--dark': isDark }" 
+        @click="redirectToRegister"
+      >
         {{ actionText }}
       </button>
     </div>
@@ -62,6 +67,10 @@ withDefaults(defineProps<Props>(), {
   isDark: false,
   period: '',
 })
+
+const redirectToRegister = () => {
+  window.open('https://agreeable-moss-0b81a851e.6.azurestaticapps.net/registrar', '_blank')
+}
 </script>
 
 <style scoped>

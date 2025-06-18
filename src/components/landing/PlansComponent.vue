@@ -1,8 +1,8 @@
 <template>
   <section class="plans-section">
-    <TitleSectionComponent title="Planes" />
+    <TitleSectionComponent :title="$t('plans.title')" />
     <div class="plans-container">
-      <h2 class="plans-title">Te ofrecemos</h2>
+      <h2 class="plans-title">{{ $t('plans.subtitle') }}</h2>
       <!-- Selector de período -->
       <div class="period-selector">
         <button
@@ -10,14 +10,14 @@
           :class="{ 'period-button--active': selectedPeriod === 'monthly' }"
           @click="selectedPeriod = 'monthly'"
         >
-          Mensual
+          {{ t('plans.monthly') }}
         </button>
         <button
           class="period-button"
           :class="{ 'period-button--active': selectedPeriod === 'yearly' }"
           @click="selectedPeriod = 'yearly'"
         >
-          Anual <span class="discount-badge">-{{ discountPercentage }}%</span>
+        {{ t('plans.yearly') }} <span class="discount-badge">-{{ discountPercentage }}%</span>
         </button>
       </div>
 
@@ -41,7 +41,7 @@
           <PlanItemComponent
             :title="corporatePlan.title"
             :price="getPrice(corporatePlan)"
-            :period="selectedPeriod === 'monthly' ? 'mensual' : 'anual'"
+            :period="selectedPeriod === 'monthly' ? t('plans.time.monthly') : t('plans.time.yearly')"
             :features="corporatePlan.features"
             :actionText="actionText"
             :isDark="true"
@@ -56,7 +56,7 @@
           <PlanItemComponent
             :title="professionalPlan.title"
             :price="getPrice(professionalPlan)"
-            :period="selectedPeriod === 'monthly' ? 'mensual' : 'anual'"
+            :period="selectedPeriod === 'monthly' ? t('plans.time.monthly') : t('plans.time.yearly')"
             :features="professionalPlan.features"
             :actionText="actionText"
           />
@@ -71,6 +71,7 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import TitleSectionComponent from '@/components/common/TitleSectionComponent.vue'
 import PlanItemComponent from '@/components/common/PlanItemComponent.vue'
 import { formatPrice } from '@/utils/formatPrice'
@@ -86,57 +87,58 @@ interface Plan {
   features: string[]
 }
 
+const { t } = useI18n()
 const selectedPeriod = ref('monthly')
-const actionText = 'Acceder'
+const actionText = computed(() => t('plans.cta'))
 const discountPercentage = 20
 
-const freePlan: Plan = {
-  title: 'Plan Gratuito',
+const freePlan = computed(() => ({
+  title: t('plans.free.title'),
   pricing: {
     monthly: 0,
     yearly: 0,
   },
   features: [
-    'Hasta 10 activos',
-    'Mantenimientos preventivos básicos',
-    'Registro manual de órdenes de trabajo',
-    'Notificaciones por correo 1 usuario administrador',
+    t('plans.free.features.0'),
+    t('plans.free.features.1'),
+    t('plans.free.features.2'),
+    t('plans.free.features.3'),
   ],
-}
+}))
 
-const professionalPlan: Plan = {
-  title: 'Plan Profesional',
+const professionalPlan = computed(() => ({
+  title: t('plans.professional.title'),
   pricing: {
     monthly: 15,
-    yearly: 144, // 15 * 12 * 0.8 (20% descuento)
+    yearly: 144,
   },
   features: [
-    'Hasta 50 activos',
-    'Todo lo del plan Gratuito',
-    'Mantenimientos correctivos y predictivos',
-    'Indicadores de rendimiento (MTTR, MTBF, etc.)',
-    'Historial completo de mantenimientos',
-    'Soporte por chat y correo',
-    'Hasta 5 usuarios administradores',
+    t('plans.professional.features.0'),
+    t('plans.professional.features.1'),
+    t('plans.professional.features.2'),
+    t('plans.professional.features.3'),
+    t('plans.professional.features.4'),
+    t('plans.professional.features.5'),
+    t('plans.professional.features.6'),
   ],
-}
+}))
 
-const corporatePlan: Plan = {
-  title: 'Plan Corporativo',
+const corporatePlan = computed(() => ({
+  title: t('plans.corporate.title'),
   pricing: {
     monthly: 30,
-    yearly: 288, // 30 * 12 * 0.8 (20% descuento)
+    yearly: 288,
   },
   features: [
-    'Activos ilimitados',
-    'Todo lo del plan profesional',
-    'Gestión de repuestos e inventario',
-    'Usuarios con roles personalizados (técnico, supervisor, admin)',
-    'Soporte prioritario',
+    t('plans.corporate.features.0'),
+    t('plans.corporate.features.1'),
+    t('plans.corporate.features.2'),
+    t('plans.corporate.features.3'),
+    t('plans.corporate.features.4'),
   ],
-}
+}))
 
-const freePlanPrice = computed(() => formatPrice(freePlan.pricing.monthly))
+const freePlanPrice = computed(() => formatPrice(freePlan.value.pricing.monthly))
 
 const getPrice = (plan: Plan): string => {
   const price = selectedPeriod.value === 'monthly' ? plan.pricing.monthly : plan.pricing.yearly

@@ -3,11 +3,11 @@
     <a
       href="#home"
       class="navbar__logo"
-      aria-label="Inicio - Logo Mecanaut"
+      aria-label="Inicio - Logo Mecanet"
       @click.prevent="scrollToSection('home')"
     >
-      <img src="@/assets/images/logo-alone.svg" alt="Logo Mecanaut" />
-      <h1 class="navbar__logo-text">Mecanaut</h1>
+      <img src="@/assets/images/logo-alone.svg" alt="Logo Mecanet" />
+      <h1 class="navbar__logo-text">Mecanet</h1>
     </a>
 
     <v-icon name="fc-globe" />
@@ -284,7 +284,7 @@ const registerConfig = ref<ButtonConfig>({
   },
 })
 </script>
-
+ 
 <style scoped>
 .navbar {
   width: 100%;

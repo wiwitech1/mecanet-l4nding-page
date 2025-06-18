@@ -1,4 +1,4 @@
-{
+{  
   "navbar": {
     "home": "Home",
     "product": "Product",
@@ -11,15 +11,15 @@
     "registerAriaLabel": "Create a new account"
   },
   "hero": {
-    "title": "Mecanaut",
+    "title": "Mecanet",
     "subtitle": "Manage your machinery maintenance like a professional",
-    "description": "Mecanaut centralizes preventive, corrective, and predictive maintenance for any type of company."
+    "description": "Mecanet centralizes preventive, corrective, and predictive maintenance for any type of company."
   },
   "product": {
     "sectionTitle": "Product",
-    "title": "What is Mecanaut?",
-    "subtitle": "Discover Mecanaut, the software designed to revolutionize machinery maintenance.",
-    "description": "Designed for companies looking to optimize their processes and reduce downtime, Mecanaut tackles maintenance challenges on three fronts",
+    "title": "What is Mecanet?",
+    "subtitle": "Discover Mecanet, the software designed to revolutionize machinery maintenance.",
+    "description": "Designed for companies looking to optimize their processes and reduce downtime, Mecanet tackles maintenance challenges on three fronts",
     "features": {
       "preventive": "Preventive Maintenance",
       "corrective": "Corrective Maintenance",
@@ -62,12 +62,12 @@
       {
         "titleBefore": "Adapts to any ",
         "titleHighlight": "type of business",
-        "description": "Use Mecanaut for industrial machinery, transport fleets, textile lines, or warehouses."
+        "description": "Use Mecanet for industrial machinery, transport fleets, textile lines, or warehouses."
       },
       {
         "titleBefore": "Your information, ",
         "titleHighlight": "protected in the cloud",
-        "description": "Don't lose data due to accidents. Mecanaut automatically saves and backs up your data."
+        "description": "Don't lose data due to accidents. Mecanet automatically saves and backs up your data."
       }
     ]
   },
@@ -108,7 +108,11 @@
         "Priority support"
       ]
     },
-    "cta": "Access"
+    "cta": "Access",
+    "time":{
+      "monthly": "monthly",
+      "yearly": "yearly"
+    }
   },
   "faq": {
     "title": "Have questions?",
@@ -128,7 +132,7 @@
       },
       {
         "question": "Do I need to install anything?",
-        "answer": "No, Mecanaut is a web application that works completely in the cloud. You only need an updated web browser to access it from any device."
+        "answer": "No, Mecanet is a web application that works completely in the cloud. You only need an updated web browser to access it from any device."
       }
     ]
   },
