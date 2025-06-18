@@ -4,8 +4,8 @@
 
     <div class="faq-container">
       <div class="faq-title">
-        <h2>¿Tienes dudas?</h2>
-        <p>Aquí resolvemos tus preguntas más frecuentes.</p>
+        <h2>{{ $t('faq.title') }}</h2>
+        <p>{{ $t('faq.subtitle') }}</p>
       </div>
 
       <div class="faq-questions">
@@ -32,7 +32,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import TitleSectionComponent from '@/components/common/TitleSectionComponent.vue'
 
 interface FaqItem {
@@ -40,28 +41,26 @@ interface FaqItem {
   answer: string
 }
 
-const faqItems: FaqItem[] = [
+const { t } = useI18n()
+
+const faqItems = computed<FaqItem[]>(() => [
   {
-    question: '¿Qué es Mecanet y cómo me ayuda?',
-    answer:
-      'Mecanet es un software que organiza y automatiza el mantenimiento de tu maquinaria. Evita olvidos, reduce fallas y mejora el control de tu operación.',
+    question: t('faq.questions.0.question'),
+    answer: t('faq.questions.0.answer'),
   },
   {
-    question: '¿El plan gratuito tiene límite de tiempo?',
-    answer:
-      'No, el plan gratuito no tiene límite de tiempo. Puedes usarlo por tiempo indefinido con las funciones básicas incluidas.',
+    question: t('faq.questions.1.question'),
+    answer: t('faq.questions.1.answer'),
   },
   {
-    question: '¿Qué pasa si necesito más activos o usuarios?',
-    answer:
-      'Puedes actualizar a nuestros planes Profesional o Corporativo en cualquier momento para aumentar la capacidad de activos y usuarios según tus necesidades.',
+    question: t('faq.questions.2.question'),
+    answer: t('faq.questions.2.answer'),
   },
   {
-    question: '¿Necesito instalar algo?',
-    answer:
-      'No, Mecanaut es una aplicación web que funciona completamente en la nube. Solo necesitas un navegador web actualizado para acceder desde cualquier dispositivo.',
+    question: t('faq.questions.3.question'),
+    answer: t('faq.questions.3.answer'),
   },
-]
+])
 
 const activeQuestion = ref<number | null>(1)
 
