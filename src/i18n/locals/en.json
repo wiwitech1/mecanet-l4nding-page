@@ -152,5 +152,9 @@
       "title": "40%",
       "subtitle": "Less downtime"
     }
+  },
+  "video": {
+    "product": "' About the Product '",
+    "team": "' About the Team '"
   }
 }

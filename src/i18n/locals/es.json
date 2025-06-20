@@ -152,5 +152,9 @@
       "title": "40%",
       "subtitle": "Menos tiempo perdido"
     }
+  },
+  "video": {
+    "product": "' Sobre el Producto '",
+    "team": "' Sobre el Equipo '"
   }
 }
