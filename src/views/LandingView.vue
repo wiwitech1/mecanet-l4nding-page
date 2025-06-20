@@ -13,6 +13,12 @@
     <section id="planes" v-show="isVisible" class="fade-enter fade-enter-active delay-4">
       <PlansComponent />
     </section>
+    <section v-show="isVisible" class="fade-enter fade-enter-active delay-2">
+      <ProductVideoComponent />
+    </section>
+    <section v-show="isVisible" class="fade-enter fade-enter-active delay-2">
+      <TeamVideoComponent />
+    </section>
     <section id="faq" v-show="isVisible" class="fade-enter fade-enter-active delay-5">
       <FAQComponent />
     </section>
@@ -25,6 +31,8 @@ import { ref, onMounted } from 'vue'
 import NavbarComponent from '@/components/common/NavbarComponent.vue'
 import HeroComponent from '@/components/landing/HeroComponent.vue'
 import ProductComponent from '@/components/landing/ProductComponent.vue'
+import ProductVideoComponent from '@/components/landing/ProductVideoComponent.vue'
+import TeamVideoComponent from '@/components/landing/TeamVideoComponent.vue'
 import BenefitsComponent from '@/components/landing/BenefitsComponent.vue'
 import PlansComponent from '@/components/landing/PlansComponent.vue'
 import FAQComponent from '@/components/landing/FAQComponent.vue'
